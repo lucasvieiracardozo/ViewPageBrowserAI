@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    /* --- Configurações Básicas --- */
+    "target": "ES6",                       // Compila nosso código para JavaScript moderno (ES6), compatível com o Chrome.
+    "lib": ["DOM", "DOM.Iterable", "ESNext"], // Informa ao TypeScript quais bibliotecas nativas ele deve conhecer (ex: 'document' do DOM).
+    "module": "ESNext",                    // Usa o sistema de módulos mais moderno.
+    "moduleResolution": "node",            // Como o TypeScript procura os módulos que importamos (padrão para projetos Node.js).
+    "jsx": "react-jsx",                    // Diz ao TypeScript para entender e transformar a sintaxe JSX do React.
+
+    /* --- Regras Rigorosas de Qualidade --- */
+    "strict": true,                        // Ativa todas as regras de verificação de tipo rigorosas. Essencial para um código de alta qualidade.
+    "forceConsistentCasingInFileNames": true, // Garante que não tenhamos problemas de importação entre diferentes sistemas operacionais.
+    "noFallthroughCasesInSwitch": true,    // Evita bugs comuns em declarações 'switch'.
+
+    /* --- Configurações de Módulos --- */
+    "esModuleInterop": true,               // Melhora a compatibilidade entre diferentes tipos de módulos JavaScript.
+    "allowSyntheticDefaultImports": true,  // Permite importações padrão de módulos que não as possuem explicitamente.
+    "resolveJsonModule": true,             // Permite importar arquivos .json diretamente no nosso código.
+    "isolatedModules": true,               // Garante que cada arquivo possa ser compilado de forma independente.
+
+    /* --- Configurações do Projeto --- */
+    /*"noEmit": true,*/                    // Diz ao TypeScript para APENAS verificar os tipos, mas não gerar os arquivos JavaScript. Deixaremos essa tarefa para o Webpack.
+    "baseUrl": "./src",                    // Define a pasta 'src' como a raiz para nossas importações.
+    "paths": {                             // (Opcional, mas útil) Permite criar apelidos para caminhos de importação.
+      "@/*": ["*"]
+    }
+  },
+  "include": ["src"],                       // Diz ao TypeScript para olhar apenas os arquivos dentro da pasta 'src'.
+  "exclude": ["node_modules"]               // Ignora a pasta de dependências.
+}
