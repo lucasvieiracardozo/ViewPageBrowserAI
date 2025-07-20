@@ -62019,8 +62019,13 @@ const App = () => {
                     try {
                         yield chrome.scripting.executeScript({ target: { tabId: tab.id }, files: ['dist/content.js'] });
                         const pageContext = yield chrome.tabs.sendMessage(tab.id, { type: "GET_PAGE_CONTEXT" });
-                        const screenshotDataUrl = yield chrome.tabs.captureVisibleTab(tab.windowId, { format: "jpeg", quality: 50 });
-                        chrome.runtime.sendMessage({ type: "START_MULTIMODAL_CHAT", screenshotDataUrl, pageContext }, (response) => {
+                        // Usar captura de página completa ao invés de apenas viewport
+                        const fullPageResult = yield chrome.runtime.sendMessage({
+                            type: "CAPTURE_FULL_PAGE",
+                            tabId: tab.id,
+                            windowId: tab.windowId
+                        });
+                        chrome.runtime.sendMessage({ type: "START_MULTIMODAL_CHAT", fullPageResult, pageContext }, (response) => {
                             var _a;
                             if (chrome.runtime.lastError || !response || response.error) {
                                 const errorMessage = ((_a = chrome.runtime.lastError) === null || _a === void 0 ? void 0 : _a.message) || (response === null || response === void 0 ? void 0 : response.error) || "Erro desconhecido";

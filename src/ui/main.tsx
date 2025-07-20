@@ -33,10 +33,15 @@ const App = () => {
           try {
             await chrome.scripting.executeScript({ target: { tabId: tab.id }, files: ['dist/content.js'] });
             const pageContext = await chrome.tabs.sendMessage(tab.id, { type: "GET_PAGE_CONTEXT" });
-            const screenshotDataUrl = await chrome.tabs.captureVisibleTab(tab.windowId, { format: "jpeg", quality: 50 });
+            // Usar captura de página completa ao invés de apenas viewport
+            const fullPageResult = await chrome.runtime.sendMessage({
+              type: "CAPTURE_FULL_PAGE",
+              tabId: tab.id,
+              windowId: tab.windowId
+            });
             
             chrome.runtime.sendMessage(
-              { type: "START_MULTIMODAL_CHAT", screenshotDataUrl, pageContext },
+              { type: "START_MULTIMODAL_CHAT", fullPageResult, pageContext },
               (response) => {
                 if (chrome.runtime.lastError || !response || response.error) {
                   const errorMessage = chrome.runtime.lastError?.message || response?.error || "Erro desconhecido";

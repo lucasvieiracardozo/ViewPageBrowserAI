@@ -13,6 +13,7 @@ module.exports = {
     background: './src/background/main.ts',
     content: './src/content/main.ts',
     ui: './src/ui/main.tsx', // Nosso app React
+    options: './src/ui/options.tsx', // Página de configurações
   },
 
   // Onde os arquivos empacotados serão colocados.

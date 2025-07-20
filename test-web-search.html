@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Pesquisa Web - ViewPageBrowserAI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #4285f4;
+        }
+        .scenario {
+            background: #fff3e0;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            border: 1px solid #ffcc02;
+        }
+        .question {
+            background: #e3f2fd;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Teste de Integração de Pesquisa Web</h1>
+    
+    <div class="test-section">
+        <h2>📋 Instruções de Teste</h2>
+        <ol>
+            <li>Abra a página de opções da extensão (chrome://extensions → ViewPageBrowserAI → Opções)</li>
+            <li>Configure pelo menos uma API de pesquisa web (SerpAPI ou Google Custom Search)</li>
+            <li>Volte a esta página e abra o chat da extensão (Ctrl+Shift+Space)</li>
+            <li>Teste os cenários abaixo para verificar se a pesquisa web está funcionando</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>🎯 Cenários de Teste</h2>
+        
+        <div class="scenario">
+            <h3>Cenário 1: Informação não disponível na página</h3>
+            <p><strong>Contexto:</strong> Esta página não contém informações sobre eventos atuais ou notícias recentes.</p>
+            <div class="question">
+                <strong>Pergunta de teste:</strong> "Quais são as principais notícias de tecnologia desta semana?"
+            </div>
+            <p><strong>Resultado esperado:</strong> A IA deve detectar que não há informações suficientes na página e realizar uma pesquisa web para fornecer notícias atuais de tecnologia.</p>
+        </div>
+
+        <div class="scenario">
+            <h3>Cenário 2: Pergunta específica sobre dados atuais</h3>
+            <p><strong>Contexto:</strong> Informações que mudam frequentemente e não estão nesta página.</p>
+            <div class="question">
+                <strong>Pergunta de teste:</strong> "Qual é o preço atual do Bitcoin?"
+            </div>
+            <p><strong>Resultado esperado:</strong> A IA deve buscar informações atuais sobre o preço do Bitcoin na web.</p>
+        </div>
+
+        <div class="scenario">
+            <h3>Cenário 3: Pergunta sobre a própria página</h3>
+            <p><strong>Contexto:</strong> Informação que está disponível nesta página de teste.</p>
+            <div class="question">
+                <strong>Pergunta de teste:</strong> "Do que se trata esta página?"
+            </div>
+            <p><strong>Resultado esperado:</strong> A IA deve responder baseada no conteúdo desta página, sem necessidade de pesquisa web.</p>
+        </div>
+
+        <div class="scenario">
+            <h3>Cenário 4: Pergunta complexa que requer contexto externo</h3>
+            <p><strong>Contexto:</strong> Pergunta que combina informação da página com conhecimento externo.</p>
+            <div class="question">
+                <strong>Pergunta de teste:</strong> "Como posso implementar uma funcionalidade similar à descrita nesta página em Python?"
+            </div>
+            <p><strong>Resultado esperado:</strong> A IA deve usar o contexto da página e buscar informações adicionais sobre implementação em Python.</p>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>✅ Checklist de Validação</h2>
+        <ul>
+            <li>□ A IA detecta quando precisa de informações externas</li>
+            <li>□ A pesquisa web é executada automaticamente quando necessário</li>
+            <li>□ Os resultados da pesquisa são integrados na resposta</li>
+            <li>□ A IA não faz pesquisas desnecessárias quando a informação está na página</li>
+            <li>□ As respostas são coerentes e úteis</li>
+            <li>□ O sistema funciona tanto com SerpAPI quanto com Google Custom Search</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>🔧 Solução de Problemas</h2>
+        <h3>Se a pesquisa web não estiver funcionando:</h3>
+        <ol>
+            <li>Verifique se as API keys estão configuradas corretamente nas opções</li>
+            <li>Abra o console do navegador (F12) para verificar erros</li>
+            <li>Teste com perguntas que claramente requerem informações externas</li>
+            <li>Verifique se você tem créditos/quota disponível nas APIs configuradas</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>📊 Informações Técnicas</h2>
+        <p><strong>Funcionalidades implementadas:</strong></p>
+        <ul>
+            <li>Detecção automática de necessidade de pesquisa web</li>
+            <li>Integração com SerpAPI e Google Custom Search API</li>
+            <li>Fallback entre diferentes APIs de pesquisa</li>
+            <li>Combinação inteligente de contexto da página com resultados de pesquisa</li>
+            <li>Interface de configuração amigável</li>
+        </ul>
+    </div>
+</body>
+</html>
