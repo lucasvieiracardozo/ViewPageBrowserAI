@@ -1,0 +1,26 @@
+{
+    "name": "view-page-browser-ai-api",
+    "version": "1.0.0",
+    "description": "Backend API for ViewPage Browser AI Extension",
+    "main": "api/analyze.js",
+    "scripts": {
+      "dev": "vercel dev",
+      "build": "echo 'No build needed for serverless functions'",
+      "start": "vercel dev"
+    },
+    "keywords": [
+      "chrome-extension",
+      "ai",
+      "gemini",
+      "web-analysis"
+    ],
+    "author": "Lucas Vieira Cardozo",
+    "license": "MIT",
+    "dependencies": {},
+    "devDependencies": {
+      "@vercel/node": "^3.0.0"
+    },
+    "engines": {
+      "node": ">=18.0.0"
+    }
+  }
